@@ -1,0 +1,18 @@
+mutation registerUser($email: String = "", $password: String= "" ){
+     accountRegister(
+    input: { 
+      email: $email
+      password: $password
+      channel: "default-channel"
+    }
+  ) {
+    accountErrors {
+      field
+      code
+    }
+    user {
+      email
+      isActive
+    }
+  } 
+}

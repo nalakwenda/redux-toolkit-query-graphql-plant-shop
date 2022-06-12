@@ -1,0 +1,37 @@
+query getProducts($first: Int = 0, $search: String  = ""){
+  products(first: $first, filter : {search: $search}) {
+    edges {
+      node {
+        id
+        name
+        pricing {
+          priceRange {
+            start {
+              gross {
+                amount
+                currency
+              }
+            }
+          }
+          discount {
+            gross {
+              amount
+              currency
+            }
+          }
+          priceRangeUndiscounted {
+            start {
+              gross {
+                amount
+                currency
+              }
+            }
+          }
+        }
+        thumbnail {
+          url
+        }
+      }
+    }
+  }
+}
